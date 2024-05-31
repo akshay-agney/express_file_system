@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filesystem</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="bg-gradient-to-br from-turquoise-blue-500 to-turquoise-blue-800 min-h-screen p-10">
+    <div class="link">
+        <a class="bg-turquoise-blue-800 text-white px-4 py-2 rounded-full" href="/create">Create New Task</a>
+    </div>
+    <div class="tasks mt-6 flex flex-wrap gap-3 ">
+        <%files.forEach((file)=>{%>
+            <div class="task relative bg-turquoise-blue-200 min-h-40 w-72 rounded-md p-5">
+                <h2 class="text-xl"><%= file.filename %>></h2>
+                <p class="mb-8 mt-3"><%=file.filedata%></p>
+                <div class="options absolute bottom-2 flex justify-between w-3/4 mt-2">
+                    <a class="text-turquoise-blue-100 bg-turquoise-blue-700 py-1 px-4 rounded-full" href="/edit/<%= file.filename %>">edit..</a>
+                    <a class="text-white bg-red-500 py-1 px-4 rounded-full" href="/del/<%= file.filename %>">delete</a>
+                </div>
+            </div>
+        <%})%>
+    </div>
+</body>
+</html>
